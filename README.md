@@ -14,7 +14,7 @@ Run `npm run test-coverage` to execute the unit tests via [Karma](https://karma-
 
 ## Overall Features
 
--> Deployed on Netlify - https://my-scalio-challenge.netlify.app/users
+-> Deployed on Netlify - my-scalio-challenge.netlify.app
 
 -> Cache system implemented for API calls
 
