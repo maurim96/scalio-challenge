@@ -8,11 +8,16 @@ import { SharedModule } from "../../shared";
 import { UsersRoutingModule } from "./users-routing.module";
 
 @NgModule({
-  declarations: [UsersSearchComponent, UsersResultsComponent, UsersListComponent],
+  declarations: [
+    UsersSearchComponent,
+    UsersResultsComponent,
+    UsersListComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
-    UsersRoutingModule
-  ]
+    UsersRoutingModule,
+  ],
+  exports: []
 })
 export class UsersModule { }

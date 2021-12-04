@@ -8,7 +8,8 @@
 }
 
 .app-layout {
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
 
 nz-layout {
@@ -37,4 +38,10 @@ nz-content {
   padding: 24px;
   background: #fff;
   height: 100%;
+}
+
+nz-footer {
+  background-color: $primary-back-color;
+  color: white;
+  text-align: center;
 }

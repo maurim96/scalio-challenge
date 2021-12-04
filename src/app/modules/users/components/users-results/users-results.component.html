@@ -1,1 +1,27 @@
-<p>users-results works!</p>
+<nz-table
+  nzShowSizeChanger
+  [nzData]="listOfUsers"
+  [nzFrontPagination]="false"
+  [nzLoading]="loading"
+  [nzTotal]="total"
+  [nzPageSize]="pageSize"
+  [nzPageIndex]="pageIndex"
+  (nzQueryParams)="onQueryParamsChange($event)"
+>
+  <thead>
+  <tr>
+    <th nzColumnKey="avatarUrl">Avatar</th>
+    <th nzColumnKey="login">Login</th>
+    <th nzColumnKey="type">Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of listOfUsers">
+    <td>
+      <nz-avatar nzIcon="user" nzSize="large" [nzSrc]="user.avatarUrl"></nz-avatar>
+    </td>
+    <td>{{ user.login }}</td>
+    <td>{{ user.type }}</td>
+  </tr>
+  </tbody>
+</nz-table>

@@ -1,21 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersSearchComponent } from './users-search.component';
+
+import { configureTestSuite } from 'ng-bullet';
+
+import {SharedModule} from "../../../../shared";
 
 describe('UsersSearchComponent', () => {
   let component: UsersSearchComponent;
   let fixture: ComponentFixture<UsersSearchComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UsersSearchComponent ]
-    })
-    .compileComponents();
-  }));
+  configureTestSuite(() => {
 
-  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [UsersSearchComponent],
+      imports: [
+        SharedModule,
+      ],
+      providers: []
+    });
     fixture = TestBed.createComponent(UsersSearchComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 

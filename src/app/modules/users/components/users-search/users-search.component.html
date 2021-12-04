@@ -1,1 +1,6 @@
-<p>users-search works!</p>
+<nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+  <input type="text" nz-input placeholder="Enter a login value" [(ngModel)]="searchTerm" />
+</nz-input-group>
+<ng-template #suffixButton>
+  <button nz-button nzType="primary" nzSize="large" nzSearch [disabled]="!searchTerm" (click)="onSubmit.emit(this.searchTerm)">Submit</button>
+</ng-template>

@@ -101,6 +101,14 @@
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/styles.scss"
             ],
+            "codeCoverageExclude": [
+              "src/app/data-layer/**/*",
+              "src/app/modules/**/**/index.ts",
+              "src/app/shared/mocks/*",
+              "src/app/shared/shared.module.ts",
+              "src/app/shared/*/index.ts",
+              "src/app/shared/index.ts"
+            ],
             "scripts": []
           }
         },

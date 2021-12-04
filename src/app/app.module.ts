@@ -16,6 +16,8 @@ import { SharedModule } from 'src/app/shared';
 
 import { AppComponent, PageNotFoundComponent } from "./core/components";
 
+import { DataLayerModule } from "./data-layer";
+
 registerLocaleData(en);
 
 @NgModule({
@@ -27,6 +29,7 @@ registerLocaleData(en);
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    DataLayerModule.forRoot(),
     SharedModule.forRoot(),
     NzSpinModule,
     NzMessageModule

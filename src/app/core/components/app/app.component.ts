@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationCancel, NavigationError, NavigationStart, Router } from "@angular/router";
 
 import { AlertMessage, UtilsService, MessageType } from "../../../shared";
 
@@ -13,8 +12,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router,
-              public utilsService: UtilsService,
+  constructor(public utilsService: UtilsService,
               private messageService: NzMessageService) { }
 
   ngOnInit(): void {
@@ -37,16 +35,6 @@ export class AppComponent implements OnInit {
           break;
       }
     });
-
-    // this.router.events
-    //   .subscribe((event) => {
-    //     if (event instanceof NavigationStart) {
-    //       this.utilsService.loading = true;
-    //     } else if (event instanceof NavigationCancel ||
-    //       event instanceof NavigationError) {
-    //       this.utilsService.loading = false;
-    //     }
-    //   });
   }
 
 }

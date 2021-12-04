@@ -1,10 +1,18 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
 
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzInputModule } from "ng-zorro-antd/input";
+import { NzButtonModule } from "ng-zorro-antd/button";
+import { NzTypographyModule } from "ng-zorro-antd/typography";
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 import { UtilsService } from "./services";
 import { LayoutComponent } from './components';
+
+import { DataLayerModule } from "../data-layer";
 
 @NgModule({
   declarations: [
@@ -12,10 +20,25 @@ import { LayoutComponent } from './components';
   ],
   imports: [
     CommonModule,
-    NzLayoutModule
+    FormsModule,
+    DataLayerModule,
+    NzLayoutModule,
+    NzInputModule,
+    NzButtonModule,
+    NzTypographyModule,
+    NzTableModule,
+    NzAvatarModule
 ],
   exports: [
-    LayoutComponent
+    FormsModule,
+    DataLayerModule,
+    LayoutComponent,
+    NzLayoutModule,
+    NzInputModule,
+    NzButtonModule,
+    NzTypographyModule,
+    NzTableModule,
+    NzAvatarModule
   ]
 })
 

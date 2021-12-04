@@ -1,21 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
+
+import { configureTestSuite } from 'ng-bullet';
+
+import {NzLayoutModule} from "ng-zorro-antd/layout";
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
   let fixture: ComponentFixture<LayoutComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LayoutComponent ]
-    })
-    .compileComponents();
-  }));
+  configureTestSuite(() => {
 
-  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LayoutComponent],
+      imports: [
+        NzLayoutModule,
+      ],
+      providers: []
+    });
     fixture = TestBed.createComponent(LayoutComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 

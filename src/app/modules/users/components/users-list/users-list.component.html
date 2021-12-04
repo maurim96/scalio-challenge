@@ -1,1 +1,11 @@
-<p>users-list works!</p>
+<section id="title">
+  <h1 nz-typography>Welcome to Scalio Code Challenge</h1>
+</section>
+
+<section id="search">
+  <users-search (onSubmit)="onSubmit($event)"></users-search>
+</section>
+
+<section id="results">
+  <users-results [searchTerm]="searchTerm"></users-results>
+</section>
