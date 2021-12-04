@@ -14,7 +14,9 @@ Run `npm run test-coverage` to execute the unit tests via [Karma](https://karma-
 
 ## Overall Features
 
--> Deployed on Azure Cloud - https://scalio-challenge.azurewebsites.net/
+-> Deployed on Netlify - https://my-scalio-challenge.netlify.app/users
+
+-> Cache system implemented for API calls
 
 -> Data-Layer structure for data management - Models and Entity-Managers approach
 
