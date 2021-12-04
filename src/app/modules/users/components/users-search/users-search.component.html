@@ -1,6 +1,8 @@
 <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
-  <input type="text" nz-input placeholder="Enter a login value" [(ngModel)]="searchTerm" />
+  <input type="text" nz-input [placeholder]="TKey.USERS_MODULE.ENTER_A_LOGIN_VALUE" [(ngModel)]="searchTerm" />
 </nz-input-group>
 <ng-template #suffixButton>
-  <button nz-button nzType="primary" nzSize="large" nzSearch [disabled]="!searchTerm" (click)="onSubmit.emit(this.searchTerm)">Submit</button>
+  <button nz-button nzType="primary" nzSize="large" nzSearch [disabled]="!searchTerm" (click)="onSubmit.emit(this.searchTerm)">
+    {{TKey.USERS_MODULE.SUBMIT}}
+  </button>
 </ng-template>

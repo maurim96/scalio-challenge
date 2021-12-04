@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from "../../../../shared";
 
 @Component({
   selector: 'users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']
 })
-export class UsersListComponent implements OnInit {
+export class UsersListComponent extends BaseComponent implements OnInit {
   searchTerm: string = 'default';
 
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   ngOnInit(): void {
   }

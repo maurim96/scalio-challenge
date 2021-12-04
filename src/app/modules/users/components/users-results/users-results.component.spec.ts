@@ -6,10 +6,11 @@ import {NzTableQueryParams} from "ng-zorro-antd/table";
 
 import { UsersResultsComponent } from './users-results.component';
 
-import {SharedModule, UserEntityManagerMockFactory} from "../../../../shared";
+import {SharedModule, UserEntityManagerMockFactory, UtilsService} from "../../../../shared";
 
 import {UserEntityManager, UserModel} from "../../../../data-layer";
 import {TestScheduler} from "rxjs/testing";
+import {throwError} from "rxjs";
 
 
 describe('UsersResultsComponent', () => {
@@ -29,7 +30,8 @@ describe('UsersResultsComponent', () => {
         SharedModule,
       ],
       providers: [
-        { provide: UserEntityManager, useValue: userEntityManagerMockFactory }
+        { provide: UserEntityManager, useValue: userEntityManagerMockFactory },
+        UtilsService
       ]
     });
     fixture = TestBed.createComponent(UsersResultsComponent);
@@ -88,5 +90,21 @@ describe('UsersResultsComponent', () => {
     // Assert
     expect(component.total).toEqual(1);
     expect(component.listOfUsers[0]).toEqual(expectedUser);
+  }));
+
+  it('should display error message on loadDataFromServer failure',  fakeAsync(() => {
+    // Arrange
+    const getUsersMock = component['userEntityManager'].getUsers;
+    component['userEntityManager'].getUsers = jasmine.createSpy().and.returnValue(throwError('error'));
+    spyOn(component['utilsService'], 'errorMessageEmitter')
+
+    // Act
+    component.loadDataFromServer();
+    tick(0);
+
+    // Assert
+    expect(component['utilsService'].errorMessageEmitter).toHaveBeenCalled();
+
+    component['userEntityManager'].getUsers = getUsersMock;
   }));
 });

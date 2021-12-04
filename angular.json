@@ -105,6 +105,7 @@
               "src/app/data-layer/**/*",
               "src/app/modules/**/**/index.ts",
               "src/app/shared/mocks/*",
+              "src/app/shared/base.component.ts",
               "src/app/shared/shared.module.ts",
               "src/app/shared/*/index.ts",
               "src/app/shared/index.ts"

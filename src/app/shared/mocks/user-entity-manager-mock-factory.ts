@@ -4,6 +4,7 @@ import {ListResponse, UserModel} from "../../data-layer";
 
 export class UserEntityManagerMockFactory {
   static get defaultMock(): any {
+    // @ts-ignore
     const mockService = jasmine.createSpyObj('UserEntityManager',['getUsers']);
     mockService.getUsers.and.returnValue(of({
       totalCount: 1,

@@ -10,13 +10,14 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 import { UtilsService } from "./services";
-import { LayoutComponent } from './components';
+import {BaseComponent, LayoutComponent} from './components';
 
 import { DataLayerModule } from "../data-layer";
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    BaseComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +31,7 @@ import { DataLayerModule } from "../data-layer";
     NzAvatarModule
 ],
   exports: [
+    BaseComponent,
     FormsModule,
     DataLayerModule,
     LayoutComponent,

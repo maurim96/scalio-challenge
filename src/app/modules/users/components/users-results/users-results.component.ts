@@ -1,13 +1,14 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { UserEntityManager, UserModel } from "../../../../data-layer";
 import { NzTableQueryParams } from "ng-zorro-antd/table";
+import {BaseComponent, UtilsService} from "../../../../shared";
 
 @Component({
   selector: 'users-results',
   templateUrl: './users-results.component.html',
   styleUrls: ['./users-results.component.scss']
 })
-export class UsersResultsComponent implements OnChanges {
+export class UsersResultsComponent extends BaseComponent implements OnChanges {
   @Input() searchTerm: string;
 
   total = 1;
@@ -20,7 +21,10 @@ export class UsersResultsComponent implements OnChanges {
 
   pageIndex = 1;
 
-  constructor(private userEntityManager: UserEntityManager) {}
+  constructor(private userEntityManager: UserEntityManager,
+              private utilsService: UtilsService) {
+    super();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     const searchTermInput = changes.searchTerm;
@@ -32,12 +36,14 @@ export class UsersResultsComponent implements OnChanges {
 
   loadDataFromServer(): void {
     this.loading = true;
-    this.userEntityManager.getUsers({ page: this.pageIndex, per_page: this.pageSize, q: this.searchTerm })
+    this.subscriptions.push(this.userEntityManager.getUsers({ page: this.pageIndex, per_page: this.pageSize, q: this.searchTerm })
       .subscribe(data => {
         this.loading = false;
         this.total = data.totalCount;
         this.listOfUsers = data.items;
-      });
+      },
+        error => this.utilsService.errorMessageEmitter(error))
+    );
   }
 
   onQueryParamsChange(params: NzTableQueryParams): void {
