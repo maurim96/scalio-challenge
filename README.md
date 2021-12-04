@@ -14,6 +14,8 @@ Run `npm run test-coverage` to execute the unit tests via [Karma](https://karma-
 
 ## Overall Features
 
+-> Deployed on Azure Cloud - https://scalio-challenge.azurewebsites.net/
+
 -> Data-Layer structure for data management - Models and Entity-Managers approach
 
 -> Mock-Factory approach for unit-testing
